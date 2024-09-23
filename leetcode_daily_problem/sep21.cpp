@@ -25,3 +25,9 @@ public:
     return res;
     }
 };
+
+
+// dekhna mera type kiya hua dikh rha h kya ??
+//hi chetan
+
+// hlo bro ....hlo hlo
