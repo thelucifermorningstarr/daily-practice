@@ -1,63 +1,74 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class Solution {
+
+// First intiuation approach .....
+
+class solution2
+{
 public:
-    vector<int> lexicalOrder(int n) {
+    vector<int> lexicalOrder(int n)
+    {
+        vector<string> ans;
 
-        //arr[13]={1,2,3,4,5,6,7,8,9,10,11,12,13}
-        vector<int> res(n);
-
-        int x=1;
-
-        for(int i=0; i<n; i++){
-            res[i]=x;
-            if(x*10>n){
-
-                if(x==n)
-                {
-                    x/=10;
-                }
-                x++;
-
-                while(x%10==0)
-                {
-                    x/=10;
-                }
-            }
-            else{
-                x*=10;
-            }
+        for (int i = 1; i <= n; i++)
+        {
+            ans.push_back(to_string(i));
         }
-    return res;
+
+        sort(ans.begin(), ans.end());
+
+        vector<int> res;
+
+        for (auto &i : ans)
+        {
+            res.push_back(stoi(i));
+        }
+
+        return res;
     }
 };
 
 
-// dekhna mera type kiya hua dikh rha h kya ??
-//hi chetan
-
-// hlo bro ....hlo hlo
 
 
 
-vector<string>ans;
-
-
-for(int i=1;i<=n;i++){
-    ans.push_back(to_string(i));
-}
-
-
-sort(ans.begin(),ans.end());
+// better solution by Himanshu  
 
 
 
-vector<int> res;
+class Solution
+{
+public:
+    vector<int> lexicalOrder(int n)
+    {
 
-for(auto &i:ans){
-    res.push_back(stoi(i));
-}
+        // arr[13]={1,2,3,4,5,6,7,8,9,10,11,12,13}
+        vector<int> res(n);
 
+        int x = 1;
 
-return res;
+        for (int i = 0; i < n; i++)
+        {
+            res[i] = x;
+            if (x * 10 > n)
+            {
 
+                if (x == n)
+                {
+                    x /= 10;
+                }
+                x++;
+
+                while (x % 10 == 0)
+                {
+                    x /= 10;
+                }
+            }
+            else
+            {
+                x *= 10;
+            }
+        }
+        return res;
+    }
+};
